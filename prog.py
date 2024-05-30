@@ -27,7 +27,6 @@ from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score, classification_report
 
 warnings.filterwarnings('ignore')
-%matplotlib inline
 
 # %% [markdown]
 # ## Loading the dataset
