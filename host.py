@@ -59,7 +59,7 @@ input_data = pd.DataFrame({
     'nr.employed': [nr_employed]
 })
 
-prediction = best_model.predict(input_data)
+prediction = model.predict(input_data)
 
 st.subheader('Prediction')
 if(prediction[0] == 1):
