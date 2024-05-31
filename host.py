@@ -38,7 +38,10 @@ cons_conf_idx = st.number_input('Consumer Confidence Index')
 euribor3m = st.number_input('Euribor 3 Month Rate')
 nr_employed = st.number_input('Number of Employees')
 
-input_data = pd.DataFrame({
+
+
+if st.button('Predict'):
+    input_data = pd.DataFrame({
     'age': [age],
     'job': [job],
     'marital': [marital],
@@ -59,12 +62,13 @@ input_data = pd.DataFrame({
     'cons.conf.idx': [cons_conf_idx],
     'euribor3m': [euribor3m],
     'nr.employed': [nr_employed]
-})
+    })
+    prediction = model.predict(input_data)
+    st.subheader('Prediction')
+    if(prediction[0] == 1):
+        st.write("The model predicts that you subscribed!")
+    else:
+        st.write("The model predicts that you didn't subscribe.")
 
-prediction = model.predict(input_data)
 
-st.subheader('Prediction')
-if(prediction[0] == 1):
-    st.write("The model predicts that you subscribed!")
-else:
-    st.write("The model predicts that you didn't subscribe.")
+
