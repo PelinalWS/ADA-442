@@ -17,27 +17,32 @@ days = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
 poutcome = ['nonexistent', 'failure', 'success']
 st.title("Term Deposit Subscription Guesser")
 
-age = st.number_input('Age', min_value=0)
-job = st.selectbox('Job', jobs)
-marital = st.selectbox('Marital Status', marital_status)
-education = st.selectbox('Education level', education)
-default = st.selectbox('Credit in Default', default)
-housing = st.selectbox('Housing Loan', housing)
-loan = st.selectbox('Personal Loan', loan)
-contact = st.selectbox('Contact', contact)
-month = st.selectbox('Month', months)
-day_of_week = st.selectbox('Day of Week', days)
-duration = st.number_input('Duration of Last Contact', min_value=0)
-campaign = st.number_input('Contacts During Campaign', min_value=0)
-pdays = st.number_input('#Days Passed After Last Contact', min_value=0)
-previous = st.number_input('#Previously Contacted', min_value=0)
-poutcome = st.selectbox('Previous Campaign Outcome', poutcome)
-emp_var_rate = st.number_input('Employment Variation Rate')
-cons_price_idx = st.number_input('Consumer Price Index')
-cons_conf_idx = st.number_input('Consumer Confidence Index')
-euribor3m = st.number_input('Euribor 3 Month Rate')
-nr_employed = st.number_input('Number of Employees')
+showPredict = False
 
+if st.button('Enter Data Manually'):
+    age = st.number_input('Age', min_value=0)
+    job = st.selectbox('Job', jobs)
+    marital = st.selectbox('Marital Status', marital_status)
+    education = st.selectbox('Education level', education)
+    default = st.selectbox('Credit in Default', default)
+    housing = st.selectbox('Housing Loan', housing)
+    loan = st.selectbox('Personal Loan', loan)
+    contact = st.selectbox('Contact', contact)
+    month = st.selectbox('Month', months)
+    day_of_week = st.selectbox('Day of Week', days)
+    duration = st.number_input('Duration of Last Contact', min_value=0)
+    campaign = st.number_input('Contacts During Campaign', min_value=0)
+    pdays = st.number_input('#Days Passed After Last Contact', min_value=0)
+    previous = st.number_input('#Previously Contacted', min_value=0)
+    poutcome = st.selectbox('Previous Campaign Outcome', poutcome)
+    emp_var_rate = st.number_input('Employment Variation Rate')
+    cons_price_idx = st.number_input('Consumer Price Index')
+    cons_conf_idx = st.number_input('Consumer Confidence Index')
+    euribor3m = st.number_input('Euribor 3 Month Rate')
+    nr_employed = st.number_input('Number of Employees')
+    showPredict = True
+elif st.button('Enter CSV Line'):
+    csv_input = st.text_input('Enter feature values separated by semicolons:')
 
 
 if st.button('Predict'):
