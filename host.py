@@ -42,8 +42,36 @@ if st.button('Enter Data Manually'):
     nr_employed = st.number_input('Number of Employees')
     showPredict = True
 elif st.button('Enter CSV Line'):
-    csv_input = st.text_input('Enter feature values separated by semicolons:')
-
+    csv_input = st.text_input('Enter values separated by semicolons:')
+    if csv_input:
+            try:
+                csv_values = [value.strip() for value in csv_input.split(';')]
+                if len(csv_values) == len(data):
+                    data['age'] = int(csv_values[0])
+                    data['job'] = csv_values[1]
+                    data['marital'] = csv_values[2]
+                    data['education'] = csv_values[3]
+                    data['default'] = csv_values[4]
+                    data['housing'] = csv_values[5]
+                    data['loan'] = csv_values[6]
+                    data['contact'] = csv_values[7]
+                    data['month'] = csv_values[8]
+                    data['day_of_week'] = csv_values[9]
+                    data['duration'] = int(csv_values[10])
+                    data['campaign'] = int(csv_values[11])
+                    data['pdays'] = int(csv_values[12])
+                    data['previous'] = int(csv_values[13])
+                    data['poutcome'] = csv_values[14]
+                    data['emp_var_rate'] = float(csv_values[15])
+                    data['cons_price_idx'] = float(csv_values[16])
+                    data['cons_conf_idx'] = float(csv_values[17])
+                    data['euribor3m'] = float(csv_values[18])
+                    data['nr_employed'] = float(csv_values[19])
+                    show_predict = True
+                else:
+                    st.error(f"Please enter exactly {len(data)} values.")
+            except ValueError:
+                st.error("Please enter valid values separated by semicolons.")
 
 if st.button('Predict'):
     input_data = pd.DataFrame({
