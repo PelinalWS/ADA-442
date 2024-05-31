@@ -14,7 +14,7 @@ loan = ['no', 'unknown', 'yes']
 contact = ['cellular', 'telephone']
 months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
 days = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
-
+poutcome = ['nonexistent', 'failure', 'success']
 st.title("Term Deposit Subscription Guesser")
 
 age = st.number_input('Age', min_value=0)
@@ -31,6 +31,7 @@ duration = st.number_input('Duration of Last Contact', min_value=0)
 campaign = st.number_input('Contacts During Campaign', min_value=0)
 pdays = st.number_input('#Days Passed After Last Contact', min_value=0)
 previous = st.number_input('#Previously Contacted', min_value=0)
+poutcome = st.selectbox('Previous Campaign Outcome')
 emp_var_rate = st.number_input('Employment Variation Rate')
 cons_price_idx = st.number_input('Consumer Price Index')
 cons_conf_idx = st.number_input('Consumer Confidence Index')
@@ -52,6 +53,7 @@ input_data = pd.DataFrame({
     'campaign': [campaign],
     'pdays': [pdays],
     'previous': [previous],
+    'poutcome': [poutcome],
     'emp.var.rate': [emp_var_rate],
     'cons.price.idx': [cons_price_idx],
     'cons.conf.idx': [cons_conf_idx],
