@@ -20,7 +20,7 @@ st.title("Term Deposit Subscription Guesser")
 getInput = False
 st.subheader('Enter Data Manually')
 
-column1, column2, column3 = st.columns(3)
+column1, column2, column3 = st.columns([2,2,2])
 
 with column1:
     age = st.number_input('Age', min_value=0)
