@@ -47,7 +47,7 @@ if st.button('Enter CSV Line'):
     if csv_input:
             try:
                 csv_values = [value.strip() for value in csv_input.split(';')]
-                if len(csv_values) == len(data):
+                if len(csv_values) == 20:
                     age = int(csv_values[0])
                     job = csv_values[1]
                     marital = csv_values[2]
@@ -70,7 +70,7 @@ if st.button('Enter CSV Line'):
                     nr_employed = float(csv_values[19])
                     show_predict = True
                 else:
-                    st.error(f"Please enter exactly {len(data)} values.")
+                    st.error(f"Please enter exactly 20 values.")
             except ValueError:
                 st.error("Please enter valid values separated by semicolons.")
 if show_predict:
