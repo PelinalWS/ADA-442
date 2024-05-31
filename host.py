@@ -18,10 +18,10 @@ poutcome = ['nonexistent', 'failure', 'success']
 st.title("Term Deposit Subscription Guesser")
 
 getInput = False
+st.subheader('Enter Data Manually')
 
 column1, column2, column3 = st.columns(3)
 
-st.subheader('Enter Data Manually')
 with column1:
     age = st.number_input('Age', min_value=0)
     job = st.selectbox('Job', jobs)
