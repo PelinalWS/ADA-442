@@ -68,12 +68,12 @@ if st.button('Enter CSV Line'):
                     cons_conf_idx = float(csv_values[17])
                     euribor3m = float(csv_values[18])
                     nr_employed = float(csv_values[19])
-                    show_predict = True
+                    showPredict = True
                 else:
                     st.error(f"Please enter exactly 20 values.")
             except ValueError:
                 st.error("Please enter valid values separated by semicolons.")
-if show_predict:
+if showPredict:
     if st.button('Predict'):
         input_data = pd.DataFrame({
         'age': [age],
