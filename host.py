@@ -43,37 +43,38 @@ if st.button('Enter Data Manually'):
     nr_employed = st.number_input('Number of Employees')
     showPredict = True
     
-if st.subheader('Enter CSV Line'):
-    csv_input = st.text_input('Enter values separated by semicolons:')
-    if csv_input:
-            try:
-                csv_values = [value.strip() for value in csv_input.split(';')]
-                if len(csv_values) == 20:
-                    age = int(csv_values[0])
-                    job = csv_values[1]
-                    marital = csv_values[2]
-                    education = csv_values[3]
-                    default = csv_values[4]
-                    housing = csv_values[5]
-                    loan = csv_values[6]
-                    contact = csv_values[7]
-                    month = csv_values[8]
-                    day_of_week = csv_values[9]
-                    duration = int(csv_values[10])
-                    campaign = int(csv_values[11])
-                    pdays = int(csv_values[12])
-                    previous = int(csv_values[13])
-                    poutcome = csv_values[14]
-                    emp_var_rate = float(csv_values[15])
-                    cons_price_idx = float(csv_values[16])
-                    cons_conf_idx = float(csv_values[17])
-                    euribor3m = float(csv_values[18])
-                    nr_employed = float(csv_values[19])
-                    showPredict = True
-                else:
-                    st.error(f"Please enter exactly 20 values.")
-            except ValueError:
-                st.error("Please enter valid values separated by semicolons.")
+st.subheader('Enter CSV Line')
+csv_input = st.text_input('Enter values separated by semicolons:')
+if csv_input:
+    try:
+        csv_values = [value.strip() for value in csv_input.split(';')]
+        if len(csv_values) == 20:
+            age = int(csv_values[0])
+            job = csv_values[1]
+            marital = csv_values[2]
+            education = csv_values[3]
+            default = csv_values[4]
+            housing = csv_values[5]
+            loan = csv_values[6]
+            contact = csv_values[7]
+            month = csv_values[8]
+            day_of_week = csv_values[9]
+            duration = int(csv_values[10])
+            campaign = int(csv_values[11])
+            pdays = int(csv_values[12])
+            previous = int(csv_values[13])
+            poutcome = csv_values[14]
+            emp_var_rate = float(csv_values[15])
+            cons_price_idx = float(csv_values[16])
+            cons_conf_idx = float(csv_values[17])
+            euribor3m = float(csv_values[18])
+            nr_employed = float(csv_values[19])
+            showPredict = True
+        else:
+            st.error(f"Please enter exactly 20 values.")
+    except ValueError:
+        st.error("Please enter valid values separated by semicolons.")
+
 if showPredict:
     if st.button('Predict'):
         input_data = pd.DataFrame({
