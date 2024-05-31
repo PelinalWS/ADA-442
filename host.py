@@ -3,18 +3,6 @@ import joblib
 import pandas as pd
 model = joblib.load('model.pkl')
 
-background_style = """
-    <style>
-        body {
-            background-image: url('./background.png');
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-    </style>
-"""
-st.markdown(background_style, unsafe_allow_html=True)
-
-
 jobs = ['blue-collar', 'services', 'admin.', 'entrepreneur',
        'self-employed', 'technician', 'management', 'student', 'retired',
        'housemaid', 'unemployed', 'unknown']
